@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dating Proposal</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      grid-template-rows: auto auto;
+      align-content: center;
+      gap: 8px;
+      place-items: center;
+      padding: 24px;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      color: #432b34;
+      background: #fff1f4;
+    }
+    main { max-width: 480px; }
+    .bottom-image {
+      display: block;
+      width: min(560px, 100%);
+      height: auto;
+      object-fit: contain;
+      object-position: center bottom;
+      pointer-events: none;
+      user-select: none;
+    }
+    h1 { margin: 0 0 12px; font-size: clamp(28px, 6vw, 40px); }
+    p { margin: 0; font-size: 20px; line-height: 1.6; }
+    .buttons { display: flex; justify-content: center; gap: 20px; margin-top: 16px; }
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      font: 700 18px system-ui, sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    #yes-btn { color: white; background: #d72d59; }
+    #evil-button { color: #432b34; background: #f2d8e0; touch-action: none; }
+    .no-slot { display: inline-block; width: 85px; height: 55px; }
+    .button:focus-visible { outline: 3px solid #432b34; outline-offset: 4px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Dating Proposal</h1>
+    <p>Hi Lin Er, <span lang="zh-Hans">你要不要跟我出去逛街玩玩？</span></p>
+    <div class="buttons">
+      <a class="button" id="yes-btn" href="Kuala%20Lumpur-itinerary%20%282%29.html">Yes</a>
+      <span class="no-slot"><button class="button" id="evil-button" type="button">No</button></span>
+    </div>
+  </main>
+  <img class="bottom-image" src="chiikawa-new.png" alt="Three cheerful Chiikawa characters waving pink flags" width="1672" height="941" draggable="false">
+  <audio id="chase-audio" src="Video%20Project.m4a" preload="auto" loop></audio>
+  <script>
+    const evilButton = document.getElementById('evil-button');
+    const chaseAudio = document.getElementById('chase-audio');
+    const OFFSET = 100;
+    let chaseTimeout;
+    let chaseStarted = false;
+    let isChasing = false;
+    let playbackPending = false;
+    let playbackBlocked = false;
+    let playbackAttempt = 0;
+
+    function stopChaseAudio() {
+      clearTimeout(chaseTimeout);
+      isChasing = false;
+      chaseAudio.pause();
+      chaseAudio.currentTime = 0;
+    }
+
+    function playChaseAudio(fromUserGesture = false) {
+      if (!fromUserGesture && (playbackPending || playbackBlocked || !chaseAudio.paused)) return;
+      // A real gesture must retry immediately, even if a hover play() is pending.
+      const attempt = ++playbackAttempt;
+      playbackPending = true;
+      chaseAudio.play().then(() => {
+        if (attempt !== playbackAttempt) return;
+        playbackBlocked = false;
+        if (!isChasing) {
+          chaseAudio.pause();
+          chaseAudio.currentTime = 0;
+        }
+      }).catch((error) => {
+        if (attempt !== playbackAttempt) return;
+        // Hover alone may not grant permission to play sound in the browser.
+        if (error.name === 'NotAllowedError') {
+          playbackBlocked = true;
+        }
+      }).finally(() => {
+        if (attempt === playbackAttempt) playbackPending = false;
+      });
+    }
+
+    function continueChaseAudio(fromUserGesture = false) {
+      isChasing = true;
+      clearTimeout(chaseTimeout);
+      chaseTimeout = setTimeout(stopChaseAudio, 700);
+      playChaseAudio(fromUserGesture);
+    }
+
+    document.getElementById('yes-btn').addEventListener('click', stopChaseAudio);
+    window.addEventListener('pagehide', stopChaseAudio);
+    window.addEventListener('blur', stopChaseAudio);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopChaseAudio();
+    });
+
+    evilButton.addEventListener('click', () => {
+      if (!chaseStarted) {
+        chaseStarted = true;
+        // The first click/tap unlocks sound and starts the escape together.
+        // Using the button center also supports keyboard activation.
+        const buttonBox = evilButton.getBoundingClientRect();
+        moveAwayFromPointer({
+          clientX: buttonBox.x + buttonBox.width / 2,
+          clientY: buttonBox.y + buttonBox.height / 2
+        }, true);
+        return;
+      }
+      stopChaseAudio();
+      alert('Nice Try');
+      window.close();
+    });
+
+    document.addEventListener('mousemove', moveAwayFromPointer);
+    // Allow the first tap to click; subsequent touches make the button dodge.
+    evilButton.addEventListener('pointerdown', (event) => {
+      if (!chaseStarted || event.pointerType === 'mouse') return;
+      event.preventDefault();
+      moveAwayFromPointer(event);
+    });
+
+    function moveAwayFromPointer(event, fromUserGesture = false) {
+      if (!chaseStarted) return;
+      // Client coordinates match getBoundingClientRect, even after scrolling.
+      const x = event.clientX;
+      const y = event.clientY;
+      const buttonBox = evilButton.getBoundingClientRect();
+      const horizontalDistanceFrom = distanceFromCenter(buttonBox.x, x, buttonBox.width);
+      const verticalDistanceFrom = distanceFromCenter(buttonBox.y, y, buttonBox.height);
+      const horizontalOffset = buttonBox.width / 2 + OFFSET;
+      const verticalOffset = buttonBox.height / 2 + OFFSET;
+
+      if (Math.abs(horizontalDistanceFrom) <= horizontalOffset && Math.abs(verticalDistanceFrom) <= verticalOffset) {
+        continueChaseAudio(fromUserGesture);
+        // Avoid division by zero when the pointer lines up with the center.
+        const safeHorizontalDistance = safeDistance(horizontalDistanceFrom);
+        const safeVerticalDistance = safeDistance(verticalDistanceFrom);
+        setButtonPosition(
+          buttonBox.x + horizontalOffset / safeHorizontalDistance * 10,
+          buttonBox.y + verticalOffset / safeVerticalDistance * 10
+        );
+      }
+    }
+
+    function setButtonPosition(left, top) {
+      const buttonBox = evilButton.getBoundingClientRect();
+      const maxLeft = Math.max(0, document.documentElement.clientWidth - buttonBox.width);
+      const maxTop = Math.max(0, document.documentElement.clientHeight - buttonBox.height);
+
+      // Wrap around the viewport edges and clamp for small screens.
+      if (left < 0) left = Math.max(0, maxLeft - OFFSET);
+      else if (left > maxLeft) left = Math.min(OFFSET, maxLeft);
+      if (top < 0) top = Math.max(0, maxTop - OFFSET);
+      else if (top > maxTop) top = Math.min(OFFSET, maxTop);
+
+      evilButton.style.position = 'fixed';
+      evilButton.style.left = `${left}px`;
+      evilButton.style.top = `${top}px`;
+    }
+
+    function distanceFromCenter(boxPosition, mousePosition, boxSize) {
+      return boxPosition - mousePosition + boxSize / 2;
+    }
+
+    function safeDistance(distance) {
+      return Math.abs(distance) < 1 ? (distance < 0 ? -1 : 1) : distance;
+    }
+
+    window.addEventListener('resize', () => {
+      evilButton.style.position = '';
+      evilButton.style.left = '';
+      evilButton.style.top = '';
+    });
+  </script>
+</body>
+</html>

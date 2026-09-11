@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shared travel itinerary</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>*{box-sizing:border-box}body{margin:0;font:14px system-ui,sans-serif;color:#252830;background:#fafaf9}header{padding:24px 30px;background:white;border-bottom:1px solid #e6e8e8}h1{font-size:28px;margin:6px 0}header small{color:#e85d4a;font-weight:700;letter-spacing:1px}p{line-height:1.6;color:#737780}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #e85d4a;outline-offset:3px}#print{float:right;padding:8px 15px;border:1px solid #ddd;border-radius:7px;background:white}#days{display:flex;gap:8px;margin-top:18px;overflow:auto}#days button{padding:8px 15px;border:0;border-radius:8px;background:#f2f3f4;white-space:nowrap}#days button[aria-pressed=true]{background:#e85d4a;color:white}.workspace{display:grid;grid-template-columns:minmax(330px,40%) 1fr;height:calc(100dvh - 225px);min-height:450px}.itinerary{overflow:auto;padding:20px 28px}h2{font-size:17px;margin:0 0 20px}article{border:1px solid #e4e6e6;border-radius:10px;padding:16px;background:white}article.selected{border-color:#e85d4a}.stop-title{display:flex;align-items:center;gap:12px;border:0;background:none;width:100%;padding:0;text-align:left;color:inherit}.stop-title:disabled{cursor:default}.number{color:white;border-radius:50%;width:26px;height:26px;display:grid;place-items:center;flex:none}article p{margin:8px 0 0 38px;font-size:12px}.note,.transit{white-space:pre-wrap}.coords{font-variant-numeric:tabular-nums}.transit{padding:14px 16px;color:#52756e;font-size:12px;line-height:1.6}#map{min-width:0;min-height:360px;background:#e8ece7}.map-pin span{display:grid;place-items:center;width:30px;height:30px;border:2px solid white;border-radius:50%;color:white;font-weight:bold;box-shadow:0 2px 6px #0004}footer{padding:14px 28px;font-size:11px;color:#777} @media(max-width:700px){header{padding:20px}.workspace{display:flex;flex-direction:column-reverse;height:auto;min-height:0}#map{height:42dvh}.itinerary{max-height:none;padding:20px}#print{float:none;margin-bottom:10px}}@media print{#print,#days{display:none}.workspace{display:block;height:auto}.itinerary{overflow:visible}#map{height:350px;break-inside:avoid}article{break-inside:avoid}}</style></head><body>
+  <header><button id="print">Print this day</button><small>SHARED ITINERARY · READ ONLY</small><h1 id="title"></h1><p id="summary"></p><nav id="days" aria-label="Trip days"></nav></header>
+  <main class="workspace"><section class="itinerary"><h2 id="dayTitle"></h2><div id="stops"></div></section><div id="map" aria-label="Itinerary map"></div></main>
+  <footer>A snapshot of the shared plan. Map tiles require internet access. Dashed lines connect locations; they are not navigation routes. Tentative stops have no pin.</footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>(function mountViewer(trip) {
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const clock = n => `${String(Math.floor(n / 60)).padStart(2,'0')}:${String(n % 60).padStart(2,'0')}`;
+  const located = e => Number.isFinite(e.lat) && Number.isFinite(e.lng);
+  const colors = {food:'#e85d4a',sight:'#367b72',transit:'#777b83',nature:'#56843e',activity:'#b47a19',hotel:'#35618e',shopping:'#aa4788',nightlife:'#73489c'};
+  document.getElementById('title').textContent = trip.title;
+  const all = trip.days.flatMap(d => d.events);
+  document.getElementById('summary').textContent = `${trip.startDate} · ${trip.days.length} day${trip.days.length === 1 ? '' : 's'} · ${all.length} stops · ${all.filter(located).length} map markers`;
+  let map, layer;
+  if (window.L) {
+    map = L.map('map');
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}).addTo(map);
+    layer = L.layerGroup().addTo(map);
+  } else document.getElementById('map').textContent = 'The map could not load. Connect to the internet and reopen this file. All stop coordinates are listed in the itinerary.';
+  const nav = document.getElementById('days');
+  trip.days.forEach((d,i) => {
+    const button = document.createElement('button');
+    button.textContent = `Day ${i + 1}`;
+    button.onclick = () => draw(i);
+    nav.appendChild(button);
+  });
+  function draw(index) {
+    [...nav.children].forEach((b,i) => b.setAttribute('aria-pressed', String(i === index)));
+    const day = trip.days[index], stops = day.events;
+    const date = new Date(`${trip.startDate}T00:00:00Z`);
+    date.setUTCDate(date.getUTCDate() + index);
+    document.getElementById('dayTitle').textContent = `${date.toLocaleDateString('en-GB',{timeZone:'UTC',weekday:'long',day:'numeric',month:'long'})}${day.theme ? ` · ${day.theme}` : ''}`;
+    const list = document.getElementById('stops');
+    list.innerHTML = stops.map((e,i) => {
+      const next = stops[i + 1], transit = next && e.transitTo?.[next.id];
+      return `<article id="stop-${i}"><button class="stop-title" data-stop="${i}"${located(e) ? '' : ' disabled'}><span class="number" style="background:${colors[e.cat] || '#367b72'}">${i + 1}</span><strong>${esc(e.name)}</strong></button><p>${e.isPlaceholder ? 'Time and venue to be confirmed' : `${clock(e.start)}–${clock(e.start + e.dur)} · ${e.dur} min`} · ${esc(e.cat)}</p>${e.note ? `<p class="note">${esc(e.note)}</p>` : ''}${located(e) ? `<p class="coords">${e.lat.toFixed(5)}, ${e.lng.toFixed(5)}</p>` : ''}</article>${next ? `<div class="transit">↓ ${esc(transit || ((!located(e) || !located(next)) ? 'Route to be confirmed' : 'Continue to the next stop'))}</div>` : ''}`;
+    }).join('') || '<p>No stops planned for this day.</p>';
+    if (!map) return;
+    layer.clearLayers();
+    const markers = new Map();
+    stops.forEach((e,i) => {
+      if (!located(e)) return;
+      const marker = L.marker([e.lat,e.lng],{icon:L.divIcon({className:'map-pin',html:`<span style="background:${colors[e.cat] || '#367b72'}">${i + 1}</span>`,iconSize:[30,30],iconAnchor:[15,15]})}).addTo(layer);
+      marker.bindPopup(`<b>${esc(e.name)}</b><br>${esc(e.note)}<br>${e.lat.toFixed(5)}, ${e.lng.toFixed(5)}`);
+      marker.on('click', () => {
+        list.querySelectorAll('article').forEach(a => a.classList.remove('selected'));
+        const card = document.getElementById(`stop-${i}`);
+        card.classList.add('selected');
+        card.scrollIntoView({block:'nearest',behavior:'smooth'});
+      });
+      markers.set(i,marker);
+      const next = stops[i + 1];
+      if (next && located(next)) L.polyline([[e.lat,e.lng],[next.lat,next.lng]],{color:'#637c76',weight:2,dashArray:'5 7'}).addTo(layer);
+    });
+    list.querySelectorAll('[data-stop]').forEach(b => b.onclick = () => {
+      const marker = markers.get(+b.dataset.stop);
+      if (marker) { map.panTo(marker.getLatLng()); marker.openPopup(); }
+    });
+    const points = stops.filter(located).map(e => [e.lat,e.lng]);
+    if (points.length) map.fitBounds(points,{padding:[40,40],maxZoom:15});
+    else map.setView([20,0],2);
+  }
+  document.getElementById('print').onclick = () => window.print();
+  draw(0);
+})({"title":"Kuala Lumpur","startDate":"2026-09-13","travellers":2,"days":[{"theme":"","events":[{"id":"s_wzo3t4","name":"Parliament of Malaysia","cat":"sight","start":600,"dur":60,"note":"","lat":3.14877,"lng":101.68054,"isPlaceholder":false,"transitTo":{"s_08x6qn":"Laluan T851"}},{"id":"s_08x6qn","name":"KL Sentral","cat":"transit","start":690,"dur":60,"note":"","lat":3.13416,"lng":101.68603,"isPlaceholder":false,"transitTo":{}},{"id":"s_6j1ku0","name":"Dinner (TBC)","cat":"food","start":null,"dur":0,"note":"","lat":null,"lng":null,"isPlaceholder":true,"transitTo":{"s_j2a2ev":"LRT Kelana Jaya Line (Line 5) to Dang Wangi station or KL Monorail to Bukit Nanas station, then take the free shuttle."}},{"id":"s_j2a2ev","name":"Menara Kuala Lumpur","cat":"sight","start":780,"dur":60,"note":"","lat":3.15287,"lng":101.70385,"isPlaceholder":false,"transitTo":{"s_5vf54s":"LRT Kelana Jaya Line (Line 5) to KLCC"}},{"id":"s_5vf54s","name":"Ombak KLCC","cat":"sight","start":870,"dur":60,"note":"","lat":3.15713,"lng":101.7177,"isPlaceholder":false,"transitTo":{}},{"id":"s_es7dpr","name":"KLCC Park","cat":"nature","start":960,"dur":60,"note":"","lat":3.15559,"lng":101.71478,"isPlaceholder":false,"transitTo":{}}]}]});</script></body></html>
