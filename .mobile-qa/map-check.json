@@ -1,0 +1,20 @@
+{
+  "selected": "stop-0",
+  "popup": "Parliament of Malaysia3.14877, 101.68054",
+  "zoomed": [
+    "https://tile.openstreetmap.org/14/12820/8048.png",
+    "https://tile.openstreetmap.org/14/12820/8049.png",
+    "https://tile.openstreetmap.org/14/12819/8048.png",
+    "https://tile.openstreetmap.org/14/12821/8048.png",
+    "https://tile.openstreetmap.org/14/12819/8049.png",
+    "https://tile.openstreetmap.org/14/12821/8049.png"
+  ],
+  "zoomedOut": [
+    "https://tile.openstreetmap.org/13/6409/4024.png",
+    "https://tile.openstreetmap.org/13/6410/4024.png",
+    "https://tile.openstreetmap.org/13/6409/4023.png",
+    "https://tile.openstreetmap.org/13/6410/4023.png",
+    "https://tile.openstreetmap.org/13/6409/4025.png",
+    "https://tile.openstreetmap.org/13/6410/4025.png"
+  ]
+}

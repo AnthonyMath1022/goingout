@@ -1,0 +1,1875 @@
+[
+  {
+    "size": "320x568",
+    "initial": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "document": {
+        "w": 320,
+        "h": 568
+      },
+      "controls": [
+        {
+          "text": "Yes",
+          "x": 64.015625,
+          "y": 240.453125,
+          "w": 86.96875,
+          "h": 55
+        },
+        {
+          "text": "No",
+          "x": 170.984375,
+          "y": 240.453125,
+          "w": 85.234375,
+          "h": 54
+        }
+      ],
+      "images": [
+        {
+          "src": "chiikawa-new.png",
+          "loaded": true,
+          "x": 24,
+          "y": 303.453125,
+          "w": 272,
+          "h": 153.078125
+        }
+      ]
+    },
+    "before": {
+      "x": 170.984375,
+      "y": 240.453125,
+      "width": 85.234375,
+      "height": 54
+    },
+    "after": {
+      "x": 100,
+      "y": 100,
+      "width": 85.234375,
+      "height": 54
+    },
+    "audioDuring": {
+      "paused": false,
+      "time": 0.004594,
+      "error": null,
+      "readyState": 4
+    },
+    "audioAfter": {
+      "paused": true,
+      "time": 0
+    },
+    "chase": [
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      }
+    ],
+    "chaseMetrics": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "document": {
+        "w": 320,
+        "h": 568
+      },
+      "controls": [
+        {
+          "text": "Yes",
+          "x": 64.015625,
+          "y": 240.453125,
+          "w": 86.96875,
+          "h": 55
+        },
+        {
+          "text": "No",
+          "x": 100,
+          "y": 100,
+          "w": 85.234375,
+          "h": 54
+        }
+      ],
+      "images": [
+        {
+          "src": "chiikawa-new.png",
+          "loaded": true,
+          "x": 24,
+          "y": 303.453125,
+          "w": 272,
+          "h": 153.078125
+        }
+      ]
+    },
+    "tripInitial": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "document": {
+        "w": 320,
+        "h": 1688
+      },
+      "controls": [
+        {
+          "text": "Print this day",
+          "x": 20,
+          "y": 20,
+          "w": 112.578125,
+          "h": 37
+        },
+        {
+          "text": "Day 1",
+          "x": 20,
+          "y": 183.390625,
+          "w": 65.109375,
+          "h": 35
+        },
+        {
+          "text": "1Parliament of Malaysia",
+          "x": 37,
+          "y": 678.390625,
+          "w": 246,
+          "h": 26
+        },
+        {
+          "text": "2KL Sentral",
+          "x": 37,
+          "y": 839.953125,
+          "w": 246,
+          "h": 26
+        },
+        {
+          "text": "3Dinner (TBC)",
+          "x": 37,
+          "y": 1001.515625,
+          "w": 246,
+          "h": 26
+        },
+        {
+          "text": "4Menara Kuala Lumpur",
+          "x": 37,
+          "y": 1174.265625,
+          "w": 246,
+          "h": 26
+        },
+        {
+          "text": "5Ombak KLCC",
+          "x": 37,
+          "y": 1335.828125,
+          "w": 246,
+          "h": 26
+        },
+        {
+          "text": "6KLCC Park",
+          "x": 37,
+          "y": 1497.390625,
+          "w": 246,
+          "h": 26
+        },
+        {
+          "text": "+",
+          "x": 12,
+          "y": 251.390625,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "−",
+          "x": 12,
+          "y": 281.390625,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Leaflet",
+          "x": 90.890625,
+          "y": 583.59375,
+          "w": 51.375,
+          "h": 14
+        },
+        {
+          "text": "OpenStreetMap contributors",
+          "x": 164.25,
+          "y": 583.59375,
+          "w": 150.75,
+          "h": 14
+        }
+      ],
+      "images": [
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4024.png",
+          "loaded": true,
+          "x": -152,
+          "y": 321.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4024.png",
+          "loaded": true,
+          "x": 104,
+          "y": 321.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4023.png",
+          "loaded": true,
+          "x": -152,
+          "y": 65.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4023.png",
+          "loaded": true,
+          "x": 104,
+          "y": 65.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4025.png",
+          "loaded": true,
+          "x": -152,
+          "y": 577.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4025.png",
+          "loaded": true,
+          "x": 104,
+          "y": 577.390625,
+          "w": 256,
+          "h": 256
+        }
+      ]
+    },
+    "tripState": {
+      "title": "Kuala Lumpur",
+      "stops": 6,
+      "map": true,
+      "markers": 5,
+      "tiles": 6,
+      "day": "true"
+    },
+    "stopTap": {
+      "scrollY": 1120,
+      "mapTop": -880.609375,
+      "mapBottom": -520.609375,
+      "popup": "KLCC Park3.15559, 101.71478"
+    },
+    "dayTap": 6,
+    "printCalled": true,
+    "errors": [],
+    "failedRequests": [],
+    "dialogs": [
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try"
+    ]
+  },
+  {
+    "size": "360x800",
+    "initial": {
+      "viewport": {
+        "w": 360,
+        "h": 800
+      },
+      "document": {
+        "w": 360,
+        "h": 800
+      },
+      "controls": [
+        {
+          "text": "Yes",
+          "x": 84.015625,
+          "y": 345.203125,
+          "w": 86.96875,
+          "h": 55
+        },
+        {
+          "text": "No",
+          "x": 190.984375,
+          "y": 345.203125,
+          "w": 85.234375,
+          "h": 54
+        }
+      ],
+      "images": [
+        {
+          "src": "chiikawa-new.png",
+          "loaded": true,
+          "x": 24,
+          "y": 408.203125,
+          "w": 312,
+          "h": 175.578125
+        }
+      ]
+    },
+    "before": {
+      "x": 190.984375,
+      "y": 345.203125,
+      "width": 85.234375,
+      "height": 54
+    },
+    "after": {
+      "x": 100,
+      "y": 100,
+      "width": 85.234375,
+      "height": 54
+    },
+    "audioDuring": {
+      "paused": false,
+      "time": 0.011656,
+      "error": null,
+      "readyState": 4
+    },
+    "audioAfter": {
+      "paused": true,
+      "time": 0
+    },
+    "chase": [
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      }
+    ],
+    "chaseMetrics": {
+      "viewport": {
+        "w": 360,
+        "h": 800
+      },
+      "document": {
+        "w": 360,
+        "h": 800
+      },
+      "controls": [
+        {
+          "text": "Yes",
+          "x": 84.015625,
+          "y": 345.203125,
+          "w": 86.96875,
+          "h": 55
+        },
+        {
+          "text": "No",
+          "x": 100,
+          "y": 100,
+          "w": 85.234375,
+          "h": 54
+        }
+      ],
+      "images": [
+        {
+          "src": "chiikawa-new.png",
+          "loaded": true,
+          "x": 24,
+          "y": 408.203125,
+          "w": 312,
+          "h": 175.578125
+        }
+      ]
+    },
+    "tripInitial": {
+      "viewport": {
+        "w": 360,
+        "h": 800
+      },
+      "document": {
+        "w": 360,
+        "h": 1688
+      },
+      "controls": [
+        {
+          "text": "Print this day",
+          "x": 20,
+          "y": 20,
+          "w": 112.578125,
+          "h": 37
+        },
+        {
+          "text": "Day 1",
+          "x": 20,
+          "y": 183.390625,
+          "w": 65.109375,
+          "h": 35
+        },
+        {
+          "text": "1Parliament of Malaysia",
+          "x": 37,
+          "y": 678.390625,
+          "w": 286,
+          "h": 26
+        },
+        {
+          "text": "2KL Sentral",
+          "x": 37,
+          "y": 839.953125,
+          "w": 286,
+          "h": 26
+        },
+        {
+          "text": "3Dinner (TBC)",
+          "x": 37,
+          "y": 1001.515625,
+          "w": 286,
+          "h": 26
+        },
+        {
+          "text": "4Menara Kuala Lumpur",
+          "x": 37,
+          "y": 1174.265625,
+          "w": 286,
+          "h": 26
+        },
+        {
+          "text": "5Ombak KLCC",
+          "x": 37,
+          "y": 1335.828125,
+          "w": 286,
+          "h": 26
+        },
+        {
+          "text": "6KLCC Park",
+          "x": 37,
+          "y": 1497.390625,
+          "w": 286,
+          "h": 26
+        },
+        {
+          "text": "+",
+          "x": 12,
+          "y": 251.390625,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "−",
+          "x": 12,
+          "y": 281.390625,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Leaflet",
+          "x": 130.890625,
+          "y": 583.59375,
+          "w": 51.375,
+          "h": 14
+        },
+        {
+          "text": "OpenStreetMap contributors",
+          "x": 204.25,
+          "y": 583.59375,
+          "w": 150.75,
+          "h": 14
+        }
+      ],
+      "images": [
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4024.png",
+          "loaded": true,
+          "x": -132,
+          "y": 321.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4024.png",
+          "loaded": true,
+          "x": 124,
+          "y": 321.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4023.png",
+          "loaded": true,
+          "x": -132,
+          "y": 65.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4023.png",
+          "loaded": true,
+          "x": 124,
+          "y": 65.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4025.png",
+          "loaded": true,
+          "x": -132,
+          "y": 577.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4025.png",
+          "loaded": true,
+          "x": 124,
+          "y": 577.390625,
+          "w": 256,
+          "h": 256
+        }
+      ]
+    },
+    "tripState": {
+      "title": "Kuala Lumpur",
+      "stops": 6,
+      "map": true,
+      "markers": 5,
+      "tiles": 6,
+      "day": "true"
+    },
+    "stopTap": {
+      "scrollY": 888,
+      "mapTop": -648.609375,
+      "mapBottom": -288.609375,
+      "popup": "KLCC Park3.15559, 101.71478"
+    },
+    "dayTap": 6,
+    "printCalled": true,
+    "errors": [],
+    "failedRequests": [],
+    "dialogs": [
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try"
+    ]
+  },
+  {
+    "size": "390x844",
+    "initial": {
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "document": {
+        "w": 390,
+        "h": 844
+      },
+      "controls": [
+        {
+          "text": "Yes",
+          "x": 99.015625,
+          "y": 358.765625,
+          "w": 86.96875,
+          "h": 55
+        },
+        {
+          "text": "No",
+          "x": 205.984375,
+          "y": 358.765625,
+          "w": 85.234375,
+          "h": 54
+        }
+      ],
+      "images": [
+        {
+          "src": "chiikawa-new.png",
+          "loaded": true,
+          "x": 24,
+          "y": 421.765625,
+          "w": 342,
+          "h": 192.46875
+        }
+      ]
+    },
+    "before": {
+      "x": 205.984375,
+      "y": 358.765625,
+      "width": 85.234375,
+      "height": 54
+    },
+    "after": {
+      "x": 100,
+      "y": 100,
+      "width": 85.234375,
+      "height": 54
+    },
+    "audioDuring": {
+      "paused": false,
+      "time": 0,
+      "error": null,
+      "readyState": 4
+    },
+    "audioAfter": {
+      "paused": true,
+      "time": 0
+    },
+    "chase": [
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      }
+    ],
+    "chaseMetrics": {
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "document": {
+        "w": 390,
+        "h": 844
+      },
+      "controls": [
+        {
+          "text": "Yes",
+          "x": 99.015625,
+          "y": 358.765625,
+          "w": 86.96875,
+          "h": 55
+        },
+        {
+          "text": "No",
+          "x": 100,
+          "y": 100,
+          "w": 85.234375,
+          "h": 54
+        }
+      ],
+      "images": [
+        {
+          "src": "chiikawa-new.png",
+          "loaded": true,
+          "x": 24,
+          "y": 421.765625,
+          "w": 342,
+          "h": 192.46875
+        }
+      ]
+    },
+    "tripInitial": {
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "document": {
+        "w": 390,
+        "h": 1650
+      },
+      "controls": [
+        {
+          "text": "Print this day",
+          "x": 20,
+          "y": 20,
+          "w": 112.578125,
+          "h": 37
+        },
+        {
+          "text": "Day 1",
+          "x": 20,
+          "y": 164.390625,
+          "w": 65.109375,
+          "h": 35
+        },
+        {
+          "text": "1Parliament of Malaysia",
+          "x": 37,
+          "y": 659.390625,
+          "w": 316,
+          "h": 26
+        },
+        {
+          "text": "2KL Sentral",
+          "x": 37,
+          "y": 820.953125,
+          "w": 316,
+          "h": 26
+        },
+        {
+          "text": "3Dinner (TBC)",
+          "x": 37,
+          "y": 982.515625,
+          "w": 316,
+          "h": 26
+        },
+        {
+          "text": "4Menara Kuala Lumpur",
+          "x": 37,
+          "y": 1136.078125,
+          "w": 316,
+          "h": 26
+        },
+        {
+          "text": "5Ombak KLCC",
+          "x": 37,
+          "y": 1297.640625,
+          "w": 316,
+          "h": 26
+        },
+        {
+          "text": "6KLCC Park",
+          "x": 37,
+          "y": 1459.203125,
+          "w": 316,
+          "h": 26
+        },
+        {
+          "text": "+",
+          "x": 12,
+          "y": 232.390625,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "−",
+          "x": 12,
+          "y": 262.390625,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Leaflet",
+          "x": 160.890625,
+          "y": 564.59375,
+          "w": 51.375,
+          "h": 14
+        },
+        {
+          "text": "OpenStreetMap contributors",
+          "x": 234.25,
+          "y": 564.59375,
+          "w": 150.75,
+          "h": 14
+        }
+      ],
+      "images": [
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4024.png",
+          "loaded": true,
+          "x": -117,
+          "y": 302.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4024.png",
+          "loaded": true,
+          "x": 139,
+          "y": 302.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4023.png",
+          "loaded": true,
+          "x": -117,
+          "y": 46.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4023.png",
+          "loaded": true,
+          "x": 139,
+          "y": 46.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4025.png",
+          "loaded": true,
+          "x": -117,
+          "y": 558.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4025.png",
+          "loaded": true,
+          "x": 139,
+          "y": 558.390625,
+          "w": 256,
+          "h": 256
+        }
+      ]
+    },
+    "tripState": {
+      "title": "Kuala Lumpur",
+      "stops": 6,
+      "map": true,
+      "markers": 5,
+      "tiles": 6,
+      "day": "true"
+    },
+    "stopTap": {
+      "scrollY": 806,
+      "mapTop": -585.609375,
+      "mapBottom": -225.609375,
+      "popup": "KLCC Park3.15559, 101.71478"
+    },
+    "dayTap": 6,
+    "printCalled": true,
+    "errors": [],
+    "failedRequests": [],
+    "dialogs": [
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try"
+    ]
+  },
+  {
+    "size": "430x932",
+    "initial": {
+      "viewport": {
+        "w": 430,
+        "h": 932
+      },
+      "document": {
+        "w": 430,
+        "h": 932
+      },
+      "controls": [
+        {
+          "text": "Yes",
+          "x": 119.015625,
+          "y": 375.5,
+          "w": 86.96875,
+          "h": 55
+        },
+        {
+          "text": "No",
+          "x": 225.984375,
+          "y": 375.5,
+          "w": 85.234375,
+          "h": 54
+        }
+      ],
+      "images": [
+        {
+          "src": "chiikawa-new.png",
+          "loaded": true,
+          "x": 24,
+          "y": 438.5,
+          "w": 382,
+          "h": 214.984375
+        }
+      ]
+    },
+    "before": {
+      "x": 225.984375,
+      "y": 375.5,
+      "width": 85.234375,
+      "height": 54
+    },
+    "after": {
+      "x": 100,
+      "y": 100,
+      "width": 85.234375,
+      "height": 54
+    },
+    "audioDuring": {
+      "paused": false,
+      "time": 0.002172,
+      "error": null,
+      "readyState": 4
+    },
+    "audioAfter": {
+      "paused": true,
+      "time": 0
+    },
+    "chase": [
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      }
+    ],
+    "chaseMetrics": {
+      "viewport": {
+        "w": 430,
+        "h": 932
+      },
+      "document": {
+        "w": 430,
+        "h": 932
+      },
+      "controls": [
+        {
+          "text": "Yes",
+          "x": 119.015625,
+          "y": 375.5,
+          "w": 86.96875,
+          "h": 55
+        },
+        {
+          "text": "No",
+          "x": 100,
+          "y": 100,
+          "w": 85.234375,
+          "h": 54
+        }
+      ],
+      "images": [
+        {
+          "src": "chiikawa-new.png",
+          "loaded": true,
+          "x": 24,
+          "y": 438.5,
+          "w": 382,
+          "h": 214.984375
+        }
+      ]
+    },
+    "tripInitial": {
+      "viewport": {
+        "w": 430,
+        "h": 932
+      },
+      "document": {
+        "w": 430,
+        "h": 1681
+      },
+      "controls": [
+        {
+          "text": "Print this day",
+          "x": 20,
+          "y": 20,
+          "w": 112.578125,
+          "h": 37
+        },
+        {
+          "text": "Day 1",
+          "x": 20,
+          "y": 164.390625,
+          "w": 65.109375,
+          "h": 35
+        },
+        {
+          "text": "1Parliament of Malaysia",
+          "x": 37,
+          "y": 690.828125,
+          "w": 356,
+          "h": 26
+        },
+        {
+          "text": "2KL Sentral",
+          "x": 37,
+          "y": 852.390625,
+          "w": 356,
+          "h": 26
+        },
+        {
+          "text": "3Dinner (TBC)",
+          "x": 37,
+          "y": 1013.953125,
+          "w": 356,
+          "h": 26
+        },
+        {
+          "text": "4Menara Kuala Lumpur",
+          "x": 37,
+          "y": 1167.515625,
+          "w": 356,
+          "h": 26
+        },
+        {
+          "text": "5Ombak KLCC",
+          "x": 37,
+          "y": 1329.078125,
+          "w": 356,
+          "h": 26
+        },
+        {
+          "text": "6KLCC Park",
+          "x": 37,
+          "y": 1490.640625,
+          "w": 356,
+          "h": 26
+        },
+        {
+          "text": "+",
+          "x": 12,
+          "y": 232.390625,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "−",
+          "x": 12,
+          "y": 262.390625,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Leaflet",
+          "x": 200.890625,
+          "y": 596.03125,
+          "w": 51.375,
+          "h": 14
+        },
+        {
+          "text": "OpenStreetMap contributors",
+          "x": 274.25,
+          "y": 596.03125,
+          "w": 150.75,
+          "h": 14
+        }
+      ],
+      "images": [
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4024.png",
+          "loaded": true,
+          "x": 159,
+          "y": 317.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4023.png",
+          "loaded": true,
+          "x": 159,
+          "y": 61.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4024.png",
+          "loaded": true,
+          "x": -97,
+          "y": 317.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6411/4024.png",
+          "loaded": true,
+          "x": 415,
+          "y": 317.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4025.png",
+          "loaded": true,
+          "x": 159,
+          "y": 573.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4023.png",
+          "loaded": true,
+          "x": -97,
+          "y": 61.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6411/4023.png",
+          "loaded": true,
+          "x": 415,
+          "y": 61.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4025.png",
+          "loaded": true,
+          "x": -97,
+          "y": 573.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6411/4025.png",
+          "loaded": true,
+          "x": 415,
+          "y": 573.390625,
+          "w": 256,
+          "h": 256
+        }
+      ]
+    },
+    "tripState": {
+      "title": "Kuala Lumpur",
+      "stops": 6,
+      "map": true,
+      "markers": 5,
+      "tiles": 9,
+      "day": "true"
+    },
+    "stopTap": {
+      "scrollY": 749,
+      "mapTop": -528.609375,
+      "mapBottom": -137.171875,
+      "popup": "KLCC Park3.15559, 101.71478"
+    },
+    "dayTap": 6,
+    "printCalled": true,
+    "errors": [],
+    "failedRequests": [],
+    "dialogs": [
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try"
+    ]
+  },
+  {
+    "size": "844x390",
+    "initial": {
+      "viewport": {
+        "w": 844,
+        "h": 390
+      },
+      "document": {
+        "w": 844,
+        "h": 539
+      },
+      "controls": [
+        {
+          "text": "Yes",
+          "x": 326.015625,
+          "y": 137,
+          "w": 86.96875,
+          "h": 55
+        },
+        {
+          "text": "No",
+          "x": 432.984375,
+          "y": 137,
+          "w": 85.234375,
+          "h": 54
+        }
+      ],
+      "images": [
+        {
+          "src": "chiikawa-new.png",
+          "loaded": true,
+          "x": 142,
+          "y": 200,
+          "w": 560,
+          "h": 315.15625
+        }
+      ]
+    },
+    "before": {
+      "x": 432.984375,
+      "y": 137,
+      "width": 85.234375,
+      "height": 54
+    },
+    "after": {
+      "x": 100,
+      "y": 100,
+      "width": 85.234375,
+      "height": 54
+    },
+    "audioDuring": {
+      "paused": false,
+      "time": 0.006952,
+      "error": null,
+      "readyState": 4
+    },
+    "audioAfter": {
+      "paused": true,
+      "time": 0
+    },
+    "chase": [
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      },
+      {
+        "x": 100,
+        "y": 100,
+        "width": 85.234375,
+        "height": 54
+      }
+    ],
+    "chaseMetrics": {
+      "viewport": {
+        "w": 844,
+        "h": 390
+      },
+      "document": {
+        "w": 844,
+        "h": 539
+      },
+      "controls": [
+        {
+          "text": "Yes",
+          "x": 326.015625,
+          "y": 137,
+          "w": 86.96875,
+          "h": 55
+        },
+        {
+          "text": "No",
+          "x": 432.984375,
+          "y": 137,
+          "w": 85.234375,
+          "h": 54
+        }
+      ],
+      "images": [
+        {
+          "src": "chiikawa-new.png",
+          "loaded": true,
+          "x": 142,
+          "y": 200,
+          "w": 560,
+          "h": 315.15625
+        }
+      ]
+    },
+    "tripInitial": {
+      "viewport": {
+        "w": 844,
+        "h": 390
+      },
+      "document": {
+        "w": 844,
+        "h": 693
+      },
+      "controls": [
+        {
+          "text": "Print this day",
+          "x": 701.421875,
+          "y": 24,
+          "w": 112.578125,
+          "h": 37
+        },
+        {
+          "text": "Day 1",
+          "x": 30,
+          "y": 140.390625,
+          "w": 65.109375,
+          "h": 35
+        },
+        {
+          "text": "1Parliament of Malaysia",
+          "x": 45,
+          "y": 279.390625,
+          "w": 247.59375,
+          "h": 26
+        },
+        {
+          "text": "2KL Sentral",
+          "x": 45,
+          "y": 440.953125,
+          "w": 247.59375,
+          "h": 26
+        },
+        {
+          "text": "3Dinner (TBC)",
+          "x": 45,
+          "y": 602.515625,
+          "w": 247.59375,
+          "h": 26
+        },
+        {
+          "text": "4Menara Kuala Lumpur",
+          "x": 45,
+          "y": 775.265625,
+          "w": 247.59375,
+          "h": 26
+        },
+        {
+          "text": "5Ombak KLCC",
+          "x": 45,
+          "y": 936.828125,
+          "w": 247.59375,
+          "h": 26
+        },
+        {
+          "text": "6KLCC Park",
+          "x": 45,
+          "y": 1098.390625,
+          "w": 247.59375,
+          "h": 26
+        },
+        {
+          "text": "+",
+          "x": 349.59375,
+          "y": 212.390625,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "−",
+          "x": 349.59375,
+          "y": 242.390625,
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Leaflet",
+          "x": 614.890625,
+          "y": 634.59375,
+          "w": 51.375,
+          "h": 14
+        },
+        {
+          "text": "OpenStreetMap contributors",
+          "x": 688.25,
+          "y": 634.59375,
+          "w": 150.75,
+          "h": 14
+        }
+      ],
+      "images": [
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4024.png",
+          "loaded": true,
+          "x": 534.59375,
+          "y": 327.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4023.png",
+          "loaded": true,
+          "x": 534.59375,
+          "y": 71.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4024.png",
+          "loaded": true,
+          "x": 278.59375,
+          "y": 327.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6411/4024.png",
+          "loaded": true,
+          "x": 790.59375,
+          "y": 327.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6410/4025.png",
+          "loaded": true,
+          "x": 534.59375,
+          "y": 583.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4023.png",
+          "loaded": true,
+          "x": 278.59375,
+          "y": 71.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6411/4023.png",
+          "loaded": true,
+          "x": 790.59375,
+          "y": 71.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6409/4025.png",
+          "loaded": true,
+          "x": 278.59375,
+          "y": 583.390625,
+          "w": 256,
+          "h": 256
+        },
+        {
+          "src": "https://tile.openstreetmap.org/13/6411/4025.png",
+          "loaded": true,
+          "x": 790.59375,
+          "y": 583.390625,
+          "w": 256,
+          "h": 256
+        }
+      ]
+    },
+    "tripState": {
+      "title": "Kuala Lumpur",
+      "stops": 6,
+      "map": true,
+      "markers": 5,
+      "tiles": 9,
+      "day": "true"
+    },
+    "stopTap": {
+      "scrollY": 303,
+      "mapTop": -102.609375,
+      "mapBottom": 347.390625,
+      "popup": "KLCC Park3.15559, 101.71478"
+    },
+    "dayTap": 6,
+    "printCalled": true,
+    "errors": [],
+    "failedRequests": [],
+    "dialogs": [
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try",
+      "Nice Try"
+    ]
+  },
+  {
+    "rotation": {
+      "rotated": {
+        "viewport": {
+          "w": 844,
+          "h": 390
+        },
+        "document": {
+          "w": 844,
+          "h": 539
+        },
+        "controls": [
+          {
+            "text": "Yes",
+            "x": 326.015625,
+            "y": 137,
+            "w": 86.96875,
+            "h": 55
+          },
+          {
+            "text": "No",
+            "x": 432.984375,
+            "y": 137,
+            "w": 85.234375,
+            "h": 54
+          }
+        ],
+        "images": [
+          {
+            "src": "chiikawa-new.png",
+            "loaded": true,
+            "x": 142,
+            "y": 200,
+            "w": 560,
+            "h": 315.15625
+          }
+        ]
+      },
+      "restored": {
+        "viewport": {
+          "w": 390,
+          "h": 844
+        },
+        "document": {
+          "w": 390,
+          "h": 844
+        },
+        "controls": [
+          {
+            "text": "Yes",
+            "x": 99.015625,
+            "y": 358.765625,
+            "w": 86.96875,
+            "h": 55
+          },
+          {
+            "text": "No",
+            "x": 205.984375,
+            "y": 358.765625,
+            "w": 85.234375,
+            "h": 54
+          }
+        ],
+        "images": [
+          {
+            "src": "chiikawa-new.png",
+            "loaded": true,
+            "x": 24,
+            "y": 421.765625,
+            "w": 342,
+            "h": 192.46875
+          }
+        ]
+      }
+    },
+    "offline": {
+      "stops": 6,
+      "mapMessage": "The map could not load. Connect to the internet and reopen this file. All stop coordinates are listed in the itinerary."
+    }
+  }
+]
