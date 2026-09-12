@@ -2,8 +2,9 @@
 """Build the two distributable copies of the guide from the source page.
 
   directions/parliament-shuttle-guide.html   source: links the .jpg files
-    -> dist/KLSentral-T851-Parliament-Guide.html  one self-contained file,
-                                             embedded, opens from anywhere
+    -> dist/KLSentral-T851-Parliament-Guide.html  one self-contained file
+                                             with the photos embedded,
+                                             opens from anywhere
     -> dist/artifact-body.html               same page without the <html>
                                              wrapper, for publishing
 
