@@ -3,8 +3,8 @@
 # fetch sibling image files).
 import base64, pathlib, re
 
-SRC = pathlib.Path('/home/user/goingout/directions/klia-ekspres-guide.html')
-OUT = pathlib.Path('/tmp/claude-0/-home-user-goingout/8ebe2766-8374-51f6-8a54-82711b8ab439/scratchpad/klia-guide.html')
+SRC = pathlib.Path('/home/user/goingout/directions/parliament-shuttle-guide.html')
+OUT = pathlib.Path('/tmp/claude-0/-home-user-goingout/8ebe2766-8374-51f6-8a54-82711b8ab439/scratchpad/parliament-shuttle-guide.html')
 
 src = SRC.read_text(encoding='utf-8')
 head = re.sub(r'<meta[^>]*>\s*', '', src.split('<head>', 1)[1].split('</head>', 1)[0])

@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>國會大廈 T851 路線</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+  *{box-sizing:border-box}
+
+  /* Light palette — KL Sentral concrete and signboard white, the magenta of
+     the KLIA Ekspres hall you cut through, and the blue of Malaysian
+     street direction signs for the outdoor leg. */
+  :root{
+    --ground:#efece6;
+    --panel:#fbfaf7;
+    --ink:#232025;
+    --ink-soft:#6a6470;
+    --rule:#ddd7cf;
+    --magenta:#c4006f;
+    --magenta-wash:#f8e7f1;
+    --route:#14549b;
+    --route-wash:#e4ecf6;
+    --arrow:#6b5636;
+    --arrow-wash:#efe8d9;
+    --shadow:0 1px 2px rgba(35,32,37,.06),0 10px 26px rgba(35,32,37,.07);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#141317;
+      --panel:#1e1c22;
+      --ink:#f0ecf1;
+      --ink-soft:#a49daa;
+      --rule:#332f39;
+      --magenta:#ff5cb0;
+      --magenta-wash:#3a1c2f;
+      --route:#7fb2ee;
+      --route-wash:#1b2a3d;
+      --arrow:#d8bd86;
+      --arrow-wash:#2d2720;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#141317;
+    --panel:#1e1c22;
+    --ink:#f0ecf1;
+    --ink-soft:#a49daa;
+    --rule:#332f39;
+    --magenta:#ff5cb0;
+    --magenta-wash:#3a1c2f;
+    --route:#7fb2ee;
+    --route-wash:#1b2a3d;
+    --arrow:#d8bd86;
+    --arrow-wash:#2d2720;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 30px rgba(0,0,0,.35);
+  }
+
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font:400 16px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    -webkit-text-size-adjust:100%;
+  }
+  .latin{font-family:"Barlow Semi Condensed","Noto Sans TC",system-ui,sans-serif}
+  .page{max-width:720px;margin:0 auto;padding-inline:16px;padding-block:28px 64px}
+
+  /* ── Masthead ─────────────────────────────── */
+  .masthead{display:flex;flex-direction:column;gap:14px;padding-bottom:26px}
+  .route-line{
+    display:flex;align-items:center;flex-wrap:wrap;gap:8px;
+    font-family:"Barlow Semi Condensed","Noto Sans TC",sans-serif;
+    font-weight:600;font-size:13px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .route-line b{color:var(--ink);font-weight:700}
+  .route-line .bus{color:var(--route);font-weight:700}
+  .route-line span[aria-hidden]{color:var(--arrow)}
+  h1{
+    margin:0;font-size:clamp(27px,6.4vw,40px);line-height:1.22;font-weight:700;
+    text-wrap:balance;letter-spacing:-.01em;
+  }
+  .lede{margin:0;max-width:34em;color:var(--ink-soft);font-size:15.5px}
+  .lede .en{display:block;font-family:"Barlow Semi Condensed",sans-serif;font-size:15px;margin-top:2px}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:14px 24px;margin:4px 0 0;padding:14px 0 0;
+    border-top:1px solid var(--rule);
+  }
+  .meta div{display:flex;flex-direction:column;gap:1px}
+  .meta dt{
+    font-family:"Barlow Semi Condensed",sans-serif;font-size:11px;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .meta dd{margin:0;font-size:15px;font-weight:500;font-variant-numeric:tabular-nums}
+
+  /* ── Leg headings ─────────────────────────── */
+  .leg{
+    display:flex;align-items:baseline;gap:10px;margin:30px 0 -6px;
+    font-family:"Barlow Semi Condensed","Noto Sans TC",sans-serif;
+  }
+  .leg:first-of-type{margin-top:4px}
+  .leg .tag{
+    font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    padding:3px 8px;border-radius:2px;background:var(--magenta-wash);color:var(--magenta);
+  }
+  .leg.outdoor .tag{background:var(--route-wash);color:var(--route)}
+  .leg h2{margin:0;font-size:16px;font-weight:700;letter-spacing:.01em}
+  .leg span{color:var(--ink-soft);font-size:13.5px;font-weight:500}
+
+  /* ── Steps ────────────────────────────────── */
+  .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:26px}
+  .step{
+    background:var(--panel);border:1px solid var(--rule);border-radius:4px;
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  /* The signboard strip mirrors the real bilingual boards overhead. */
+  .board{
+    display:flex;align-items:center;gap:12px;margin:0;
+    padding:11px 16px;border-bottom:1px solid var(--rule);
+    background:var(--arrow-wash);
+  }
+  .step-no{
+    flex:none;width:26px;height:26px;border-radius:2px;
+    background:var(--magenta);color:#fff;
+    font-family:"Barlow Semi Condensed",sans-serif;font-weight:700;font-size:16px;
+    display:grid;place-items:center;font-variant-numeric:tabular-nums;
+  }
+  .outdoor-step .step-no{background:var(--route)}
+  .outdoor-step .board{background:var(--route-wash)}
+  .outdoor-step .board-text,.outdoor-step .glyph{color:var(--route)}
+  .board-text{
+    font-family:"Barlow Semi Condensed","Noto Sans TC",sans-serif;
+    font-weight:600;font-size:14.5px;letter-spacing:.04em;line-height:1.35;color:var(--arrow);
+  }
+  .board-text em{display:block;font-style:normal;font-weight:500;opacity:.75;font-size:13px}
+  .board .glyph{margin-left:auto;font-size:19px;color:var(--arrow);flex:none}
+
+  .step h3{margin:0;padding:16px 18px 0;font-size:18.5px;line-height:1.45;font-weight:700;text-wrap:balance}
+  .step h3 .en{
+    display:block;margin-top:3px;
+    font-family:"Barlow Semi Condensed",sans-serif;font-weight:500;font-size:13.5px;
+    letter-spacing:.01em;color:var(--ink-soft);
+  }
+  .shot{display:block;width:100%;height:auto;margin-top:14px;border-block:1px solid var(--rule)}
+  .prose{padding:15px 18px 18px;display:flex;flex-direction:column;gap:9px}
+  .prose p{margin:0}
+  .spot{
+    display:flex;gap:10px;margin-top:4px;padding:11px 13px;
+    background:var(--magenta-wash);border-radius:3px;font-size:14.5px;line-height:1.6;
+  }
+  .outdoor-step .spot{background:var(--route-wash)}
+  .spot .eye{flex:none;font-family:"Barlow Semi Condensed",sans-serif;font-weight:700;
+             font-size:11px;letter-spacing:.12em;color:var(--magenta);padding-top:4px}
+  .outdoor-step .spot .eye{color:var(--route)}
+  .sign{
+    font-family:"Barlow Semi Condensed","Noto Sans TC",sans-serif;font-weight:600;
+    background:var(--magenta-wash);color:var(--magenta);
+    padding:1px 6px;border-radius:2px;white-space:nowrap;
+  }
+  .sign.road{background:var(--route-wash);color:var(--route)}
+  .spot .sign{background:transparent;padding:0}
+  b{font-weight:700}
+
+  /* ── Before you go ────────────────────────── */
+  .notes{margin-top:34px;padding-top:22px;border-top:2px solid var(--route)}
+  .notes h2{
+    margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+    font-family:"Barlow Semi Condensed",sans-serif;color:var(--route);
+  }
+  .notes dl{margin:0;display:flex;flex-direction:column;gap:15px}
+  .notes dt{font-weight:700;font-size:15.5px;margin-bottom:2px}
+  .notes dd{margin:0;color:var(--ink-soft);font-size:15px}
+  footer{margin-top:34px;padding-top:14px;border-top:1px solid var(--rule);
+         color:var(--ink-soft);font-size:12.5px;line-height:1.7}
+  a{color:var(--route)}
+  a:focus-visible{outline:2px solid var(--route);outline-offset:3px}
+
+  @media (max-width:430px){
+    .board{padding:10px 13px;gap:10px}
+    .step h3{padding-inline:14px}
+    .prose{padding-inline:14px}
+  }
+  @media print{
+    body{background:#fff}
+    .step{break-inside:avoid;box-shadow:none}
+    .shot{max-height:8.5cm;object-fit:cover}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <p class="route-line latin"><b>KL Sentral</b> <span aria-hidden="true">→</span> KLIA Ekspres Hall <span aria-hidden="true">→</span> <span class="bus">Bus T851</span> <span aria-hidden="true">→</span> <b>Bangunan Parlimen</b></p>
+  <h1>從 KL Sentral 搭 T851 接駁巴士去馬來西亞國會大廈</h1>
+  <p class="lede">難的不是坐車，是在 KL Sentral 裡找到那個站牌。八張現場照片，一步一步走到 T851 的候車亭。
+    <span class="en" lang="en">Eight on-the-ground photos: through KL Sentral to the T851 shuttle stop for the Malaysian Parliament.</span></p>
+  <dl class="meta">
+    <div><dt class="latin">Walk inside</dt><dd>約 7 分鐘</dd></div>
+    <div><dt class="latin">Bus</dt><dd class="latin">T851</dd></div>
+    <div><dt class="latin">Start</dt><dd class="latin">KL Sentral, Level 1</dd></div>
+    <div><dt class="latin">Steps</dt><dd>8 步</dd></div>
+  </dl>
+</header>
+
+<div class="leg">
+  <span class="tag">第一段</span>
+  <h2>穿過 KL Sentral 到出口</h2>
+  <span>步驟 1 – 5</span>
+</div>
+
+<ol class="steps">
+
+  <li class="step">
+    <p class="board"><span class="step-no">1</span>
+      <span class="board-text">WELCOME TO NU SENTRAL<em>大廳中央的手扶梯，最好認的起點</em></span>
+      <span class="glyph" aria-hidden="true">↗</span></p>
+    <h3>站到 NU Sentral 手扶梯正前方，再轉向右手邊的 KLIA Ekspres 入口
+      <span class="en" lang="en">Stand facing the NU Sentral escalators, then head right to the KLIA Ekspres entrance</span></h3>
+    <img class="shot" src="step-1-nu-sentral.jpg" alt="KL Sentral 大廳，正前方是通往 NU Sentral 的手扶梯與樓梯，右下角以星星標示 KLIA Ekspres 入口方向">
+    <div class="prose">
+      <p>先把自己帶到這面大螢幕與手扶梯前面——寫著 <span class="sign">WELCOME TO NU SENTRAL</span>，是整個大廳最好認的地標，走丟了就回到這裡重來。</p>
+      <p>面向手扶梯站好之後，<b>往右前方走</b>（照片裡星星閃爍的那個方向），那裡是通往 KLIA Ekspres 的通道口。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>不是要搭機場快線，只是<b>借這條通道走到另一邊的出口</b>——T851 的站牌在 KL Sentral 的那一側，從這裡穿過去最快。</span></p>
+    </div>
+  </li>
+
+  <li class="step">
+    <p class="board"><span class="step-no">2</span>
+      <span class="board-text">BALAI PERLEPASAN KLIA EKSPRES<em>KLIA Ekspres Departure Hall</em></span>
+      <span class="glyph" aria-hidden="true">↓</span></p>
+    <h3>從粉紅色招牌底下走進去
+      <span class="en" lang="en">Walk in beneath the pink departure-hall sign</span></h3>
+    <img class="shot" src="step-2-departure-hall.jpg" alt="粉紅色發光招牌，寫著 Balai Perlepasan KLIA Ekspres / KLIA Ekspres Departure Hall，右側是 Currency Exchange 換匯櫃檯">
+    <div class="prose">
+      <p>看到這面亮粉紅色的招牌就對了：<span class="sign">Balai Perlepasan KLIA Ekspres</span> 是馬來文，下面的英文 <span class="sign">KLIA Ekspres Departure Hall</span> 說的是同一件事。<b>直接從招牌下方走進去。</b></p>
+      <p>裡面有一塊小牌子寫 <span class="sign">Platform Tren</span>，箭頭朝下指向月台手扶梯——<b>不要下去</b>，那是搭機場快線用的，我們要留在這一層。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>右手邊紅底白字的 <span class="sign">CURRENCY EXCHANGE</span> 換匯櫃檯。這是進門後的第一個確認點。</span></p>
+    </div>
+  </li>
+
+  <li class="step">
+    <p class="board"><span class="step-no">3</span>
+      <span class="board-text">DAFTAR MASUK PENERBANGAN<em>Flight Check-in</em></span>
+      <span class="glyph" aria-hidden="true">↗</span></p>
+    <h3>抬頭看指示牌：往前直走，然後轉右
+      <span class="en" lang="en">Read the overhead sign — straight ahead, then turn right</span></h3>
+    <img class="shot" src="step-3-signage.jpg" alt="白色懸掛指示牌：左箭頭 Train Platform、上箭頭 Customer Service、右上箭頭 Daftar Masuk Penerbangan / Flight Check-in">
+    <div class="prose">
+      <p>進來以後抬頭，一面白色指示牌把三個方向都寫清楚了：<br>
+        ← <span class="sign">Train Platform</span> 月台　·　↑ <span class="sign">Customer Service</span> 客服　·　↗ <span class="sign">Flight Check-in</span> 登機報到</p>
+      <p>跟著右上角的 <b><span class="sign">Daftar Masuk Penerbangan</span></b> 方向走：<b>先往前直走，再轉右。</b>我們不辦登機，只是借這個方向往外走。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>左邊那排紫色驗票閘門是搭火車用的，<b>不要刷票進去</b>，進去了就得再出來。</span></p>
+    </div>
+  </li>
+
+  <li class="step">
+    <p class="board"><span class="step-no">4</span>
+      <span class="board-text">LUGGAGE CENTRAL<em>行李店櫃檯 · 走對路的證明</em></span>
+      <span class="glyph" aria-hidden="true">→</span></p>
+    <h3>看到藍色的 LUGGAGE CENTRAL，就表示沒走錯
+      <span class="en" lang="en">Passing the blue LUGGAGE CENTRAL counter means you are on track</span></h3>
+    <img class="shot" src="step-4-luggage-central.jpg" alt="藍色 LUGGAGE CENTRAL 行李店櫃檯，左側有兩台按摩椅，右側是落地玻璃窗">
+    <div class="prose">
+      <p>轉右之後，前方會出現藍色招牌的 <span class="sign">LUGGAGE CENTRAL</span>，左邊擺著兩台按摩椅。</p>
+      <p>這是路上的<b>確認點</b>：看到它就繼續往前。沒看到的話，退回步驟 3 的指示牌重新找一次。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>這一段右側是整面落地窗，白天光線明顯比剛才的通道亮很多，走進來會感覺「突然變亮了」——這表示外面就快到了。</span></p>
+    </div>
+  </li>
+
+  <li class="step">
+    <p class="board"><span class="step-no">5</span>
+      <span class="board-text">KL CITY AIR TERMINAL<em>Counters 11 – 16 · 直接走過去</em></span>
+      <span class="glyph" aria-hidden="true">→</span></p>
+    <h3>經過整排報到櫃檯，不用停，繼續往外走
+      <span class="en" lang="en">Walk past the check-in counters — no need to stop here</span></h3>
+    <img class="shot" src="step-5-check-in.jpg" alt="KL City Air Terminal 報到區，粉紅色編號 11 至 16 的 Flight Check-in 櫃檯，前方有四台自助報到與行李托運機">
+    <div class="prose">
+      <p>右手邊整排粉紅色行李箱圖示的號碼牌，從 <span class="sign">11</span> 排到 <span class="sign">16</span>，這裡是機場的市區預辦登機區 <span class="sign">KL City Air Terminal</span>。</p>
+      <p>這區<b>跟我們的行程無關</b>，不用排隊、不用理會自助機。沿著櫃檯前面的走道繼續往前，前方的玻璃門就是出口。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>看到自助報到機（<span class="sign">Self-Service Check-in &amp; Baggage Drop</span>）就代表你在正確的走道上，出口在這排櫃檯的另一端。</span></p>
+    </div>
+  </li>
+
+</ol>
+
+<div class="leg outdoor">
+  <span class="tag">第二段</span>
+  <h2>出站走到 T851 候車亭</h2>
+  <span>步驟 6 – 8</span>
+</div>
+
+<ol class="steps">
+
+  <li class="step outdoor-step">
+    <p class="board"><span class="step-no">6</span>
+      <span class="board-text">KELUAR<em>Exit · 玻璃門通向戶外</em></span>
+      <span class="glyph" aria-hidden="true">→</span></p>
+    <h3>從這道玻璃門走出去
+      <span class="en" lang="en">Head out through this glass doorway</span></h3>
+    <img class="shot" src="step-6-exit-door.jpg" alt="KL Sentral 內側看向戶外的玻璃門，門外是車道與有頂棚的候車區，左側有紫色柱子與盆栽">
+    <div class="prose">
+      <p>走道盡頭是一整片落地玻璃門，外面看得到馬路、停著的車，以及對面有頂棚的候車區。<b>從這裡出去。</b></p>
+      <p>出去之後就離開冷氣區了，接下來都是半戶外——天氣熱的話，先在門內把水拿出來、戴好帽子再出去。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>門上的文字從裡面看是反的，那是給外面進來的人看的 <span class="sign road">Departures</span> 指示。左邊的紫色柱子是這道門最好認的標記。</span></p>
+    </div>
+  </li>
+
+  <li class="step outdoor-step">
+    <p class="board"><span class="step-no">7</span>
+      <span class="board-text">KK SUPER MART <span aria-hidden="true">×</span> 3<em>門的斜對面 · 大挑高候車大廳</em></span>
+      <span class="glyph" aria-hidden="true">↗</span></p>
+    <h3>斜對面有三間連在一起的 KK，看到就是方向對了
+      <span class="en" lang="en">Three KK Mart storefronts sit diagonally opposite the door</span></h3>
+    <img class="shot" src="step-7-kk-mart.jpg" alt="KL Sentral 挑高候車大廳，一整排店面中有三間相連的 KK Super Mart，上方懸掛 KLIA Ekspres 折扣布條">
+    <div class="prose">
+      <p>出了門往斜對面看，會看到<b>三間連在一起的 <span class="sign road">KK</span> 便利商店</b>（KK Super Mart），旁邊還有一個飲料攤。這是整段路最明顯的地標。</p>
+      <p>上方懸掛著 <span class="sign">KLIA ekspres</span> 與 <span class="sign">KLIA transit</span> 的折扣布條，抬頭就看得到——確認自己還在 KL Sentral 的範圍內，沒有走偏。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>要買水、買零食就趁現在，站牌那邊沒有商店。買完往 KK 的<b>左前方</b>繼續走出去，就是巴士候車亭。</span></p>
+    </div>
+  </li>
+
+  <li class="step outdoor-step">
+    <p class="board"><span class="step-no">8</span>
+      <span class="board-text">PERHENTIAN BAS<em>Bus stop · T851</em></span>
+      <span class="glyph" aria-hidden="true">✓</span></p>
+    <h3>在這個有遮陽棚的候車亭等 T851
+      <span class="en" lang="en">Wait for the T851 under the covered shelter</span></h3>
+    <img class="shot" src="step-8-bus-stop.jpg" alt="KL Sentral 戶外的木頂候車亭，一群人排隊候車，後方是藍色路標與 Aloft 飯店，右側有紅色 FIRE POST 小屋">
+    <div class="prose">
+      <p>到了！兩座木頂遮陽棚、旁邊一間紅色的 <span class="sign road">FIRE POST</span> 小屋，通常已經有人在排隊——<b>就在這裡等 T851</b>。</p>
+      <p>路口的藍色路標寫著 <span class="sign road">KLIA Ekspres Ketibaan / Arrivals</span>、<span class="sign road">Lebuhraya Mahameru</span>、<span class="sign road">Jalan Stesen Sentral 5</span>，對街是 <span class="sign road">Aloft Kuala Lumpur Sentral</span> 飯店。四個都對得上，就是這裡沒錯。</p>
+      <p>車來的時候<b>看車頭的路線號碼與終點顯示</b>，確認是 T851 再上車；不確定就直接問司機一句「Parlimen?」。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>排隊的人多半是本地通勤族，跟著隊伍站就好。若站牌下有臨時改道公告，以現場公告為準。</span></p>
+    </div>
+  </li>
+
+</ol>
+
+<section class="notes">
+  <h2>上車前先準備</h2>
+  <dl>
+    <div>
+      <dt>先備好 Touch &rsquo;n Go。</dt>
+      <dd>接駁巴士刷卡最快，也不用擔心找零。出發前先確認卡片餘額；若打算付現金，先換好小鈔硬幣，部分路線不找零。</dd>
+    </div>
+    <div>
+      <dt>班距抓寬一點。</dt>
+      <dd>接駁線的班距會隨時段變動，尖峰之外可能等比較久。用 Google Maps 或 Moovit 查即時班次，預留緩衝時間，別卡著參觀時間出門。</dd>
+    </div>
+    <div>
+      <dt>國會大廈不是隨到隨進。</dt>
+      <dd>馬來西亞國會大廈（Bangunan Parlimen Malaysia）參觀通常需要事先申請，並且有安檢與證件查驗。開放時間、申請方式請以國會官方公告為準，臨時前往很可能被擋在門口。</dd>
+    </div>
+    <div>
+      <dt>服裝要正式。</dt>
+      <dd>國會對服裝規定相當嚴格：建議穿有領上衣與長褲、包鞋；短褲、無袖、拖鞋、牛仔褲都可能被拒絕入內。天氣再熱也要照規定穿。</dd>
+    </div>
+    <div>
+      <dt>回程也在同一區。</dt>
+      <dd>回 KL Sentral 的站牌不一定在下車的同一側，下車時先看清楚對向站牌的位置，或先問司機回程在哪裡搭。</dd>
+    </div>
+  </dl>
+</section>
+
+<footer>照片攝於 KL Sentral 現場。店家、看板與站牌位置會隨時間調整；若現場與照片不同，就以現場指示牌與工作人員的指引為準。班次、票價與國會參觀規定請以官方公告為準。</footer>
+
+</div>
+</body>
+</html>
