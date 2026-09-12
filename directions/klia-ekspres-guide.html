@@ -3,161 +3,281 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KL Sentral → KLIA Ekspres 路線指引</title>
+<title>KLIA Ekspres 市區報到路線</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
   *{box-sizing:border-box}
+
+  /* Light palette — KL Sentral concrete, signboard white, KLIA magenta,
+     and the brown of Malaysian directional signage arrows. */
   :root{
-    --bg:#fbf7f8; --card:#ffffff; --ink:#2c2230; --muted:#6d6470;
-    --accent:#d6007f; --accent-soft:#fde6f3; --line:#ecdfe6;
+    --ground:#efece6;
+    --panel:#fbfaf7;
+    --ink:#232025;
+    --ink-soft:#6a6470;
+    --rule:#ddd7cf;
+    --magenta:#c4006f;
+    --magenta-ink:#c4006f;
+    --magenta-wash:#f8e7f1;
+    --arrow:#6b5636;
+    --arrow-wash:#efe8d9;
+    --shadow:0 1px 2px rgba(35,32,37,.06),0 10px 26px rgba(35,32,37,.07);
   }
   @media (prefers-color-scheme:dark){
-    :root{--bg:#17131a; --card:#221c26; --ink:#f2ecf2; --muted:#a79fad;
-          --accent:#ff69bb; --accent-soft:#3a1f31; --line:#352c3a;}
+    :root:not([data-theme="light"]){
+      --ground:#141317;
+      --panel:#1e1c22;
+      --ink:#f0ecf1;
+      --ink-soft:#a49daa;
+      --rule:#332f39;
+      --magenta:#ff5cb0;
+      --magenta-ink:#ff7cc0;
+      --magenta-wash:#3a1c2f;
+      --arrow:#d8bd86;
+      --arrow-wash:#2d2720;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 30px rgba(0,0,0,.35);
+    }
   }
-  body{margin:0;background:var(--bg);color:var(--ink);
-       font:16px/1.65 system-ui,-apple-system,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;}
-  .wrap{max-width:760px;margin:0 auto;padding:24px 16px 56px}
-  header{padding:8px 0 22px;border-bottom:1px solid var(--line);margin-bottom:26px}
-  .kicker{color:var(--accent);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0}
-  h1{margin:8px 0 10px;font-size:clamp(24px,5.5vw,34px);line-height:1.25}
-  .lede{margin:0;color:var(--muted);font-size:15px}
-  .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;padding:0;list-style:none}
-  .facts li{background:var(--accent-soft);color:var(--accent);border-radius:999px;
-            padding:6px 13px;font-size:13px;font-weight:600}
-  ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:22px}
-  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-  .step-head{display:flex;gap:12px;align-items:flex-start;padding:16px 18px 12px}
-  .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;
-       display:grid;place-items:center;font-weight:700;font-size:15px;margin-top:2px}
-  .step-head h2{margin:0;font-size:18px;line-height:1.4}
-  .step-head .en{display:block;color:var(--muted);font-size:13px;font-weight:500;margin-top:2px}
-  .step img{display:block;width:100%;height:auto;background:#0002}
-  .body{padding:14px 18px 18px}
-  .body p{margin:0 0 10px}
-  .body p:last-child{margin-bottom:0}
-  .look{display:flex;gap:9px;align-items:flex-start;background:var(--accent-soft);
-        border-radius:10px;padding:11px 13px;font-size:14px;margin-top:12px}
-  .look b{color:var(--accent)}
-  .sign{font-weight:700;background:var(--accent-soft);color:var(--accent);
-        padding:1px 6px;border-radius:5px;white-space:nowrap}
-  .notes{margin-top:30px;background:var(--card);border:1px solid var(--line);
-         border-left:4px solid var(--accent);border-radius:12px;padding:18px}
-  .notes h2{margin:0 0 10px;font-size:17px}
-  .notes ul{margin:0;padding-left:20px}
-  .notes li{margin-bottom:8px}
-  .notes li:last-child{margin-bottom:0}
-  footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center}
-  a{color:var(--accent)}
+  :root[data-theme="dark"]{
+    --ground:#141317;
+    --panel:#1e1c22;
+    --ink:#f0ecf1;
+    --ink-soft:#a49daa;
+    --rule:#332f39;
+    --magenta:#ff5cb0;
+    --magenta-ink:#ff7cc0;
+    --magenta-wash:#3a1c2f;
+    --arrow:#d8bd86;
+    --arrow-wash:#2d2720;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 30px rgba(0,0,0,.35);
+  }
+
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font:400 16px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    -webkit-text-size-adjust:100%;
+  }
+  .latin{font-family:"Barlow Semi Condensed","Noto Sans TC",system-ui,sans-serif}
+  .page{max-width:720px;margin:0 auto;padding-inline:16px;padding-block:28px 64px}
+
+  /* ── Masthead ─────────────────────────────── */
+  .masthead{display:flex;flex-direction:column;gap:14px;padding-bottom:26px}
+  .route{
+    display:flex;align-items:center;flex-wrap:wrap;gap:8px;
+    font-family:"Barlow Semi Condensed","Noto Sans TC",sans-serif;
+    font-weight:600;font-size:13px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .route b{color:var(--magenta-ink);font-weight:700}
+  .route span[aria-hidden]{color:var(--arrow)}
+  h1{
+    margin:0;font-size:clamp(27px,6.4vw,40px);line-height:1.22;font-weight:700;
+    text-wrap:balance;letter-spacing:-.01em;
+  }
+  .lede{margin:0;max-width:34em;color:var(--ink-soft);font-size:15.5px}
+  .lede .en{display:block;font-family:"Barlow Semi Condensed",sans-serif;font-size:15px;margin-top:2px}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:0 24px;margin:4px 0 0;padding:14px 0 0;
+    border-top:1px solid var(--rule);list-style:none;
+  }
+  .meta div{display:flex;flex-direction:column;gap:1px}
+  .meta dt{
+    font-family:"Barlow Semi Condensed",sans-serif;font-size:11px;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .meta dd{margin:0;font-size:15px;font-weight:500;font-variant-numeric:tabular-nums}
+
+  /* ── Steps ────────────────────────────────── */
+  .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:26px}
+  .step{
+    background:var(--panel);border:1px solid var(--rule);border-radius:4px;
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  /* The signboard strip: mimics the real bilingual boards overhead. */
+  .board{
+    display:flex;align-items:center;gap:12px;
+    padding:11px 16px;border-bottom:1px solid var(--rule);
+    background:var(--arrow-wash);
+  }
+  .step-no{
+    flex:none;width:26px;height:26px;border-radius:2px;
+    background:var(--magenta);color:#fff;
+    font-family:"Barlow Semi Condensed",sans-serif;font-weight:700;font-size:16px;
+    display:grid;place-items:center;font-variant-numeric:tabular-nums;
+  }
+  .board-text{
+    font-family:"Barlow Semi Condensed","Noto Sans TC",sans-serif;
+    font-weight:600;font-size:14.5px;letter-spacing:.04em;line-height:1.35;color:var(--arrow);
+  }
+  .board-text em{display:block;font-style:normal;font-weight:500;opacity:.75;font-size:13px}
+  .board .glyph{margin-left:auto;font-size:19px;color:var(--arrow);flex:none}
+
+  .step h2{margin:0;padding:16px 18px 0;font-size:18.5px;line-height:1.45;font-weight:700;text-wrap:balance}
+  .step h2 .en{
+    display:block;margin-top:3px;
+    font-family:"Barlow Semi Condensed",sans-serif;font-weight:500;font-size:13.5px;
+    letter-spacing:.01em;color:var(--ink-soft);
+  }
+  .shot{display:block;width:100%;height:auto;margin-top:14px;border-block:1px solid var(--rule)}
+  .prose{padding:15px 18px 18px;display:flex;flex-direction:column;gap:9px}
+  .prose p{margin:0}
+  .spot{
+    display:flex;gap:10px;margin-top:4px;padding:11px 13px;
+    background:var(--magenta-wash);border-radius:3px;font-size:14.5px;line-height:1.6;
+  }
+  .spot .eye{flex:none;font-family:"Barlow Semi Condensed",sans-serif;font-weight:700;
+             font-size:11px;letter-spacing:.12em;color:var(--magenta-ink);padding-top:4px}
+  .sign{
+    font-family:"Barlow Semi Condensed","Noto Sans TC",sans-serif;font-weight:600;
+    background:var(--magenta-wash);color:var(--magenta-ink);
+    padding:1px 6px;border-radius:2px;white-space:nowrap;
+  }
+  .spot .sign{background:transparent;padding:0}
+  b{font-weight:700}
+
+  /* ── Before you go ────────────────────────── */
+  .notes{margin-top:34px;padding-top:22px;border-top:2px solid var(--magenta)}
+  .notes h2{
+    margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+    font-family:"Barlow Semi Condensed",sans-serif;color:var(--magenta-ink);
+  }
+  .notes dl{margin:0;display:flex;flex-direction:column;gap:15px}
+  .notes dt{font-weight:700;font-size:15.5px;margin-bottom:2px}
+  .notes dd{margin:0;color:var(--ink-soft);font-size:15px}
+  footer{margin-top:34px;padding-top:14px;border-top:1px solid var(--rule);
+         color:var(--ink-soft);font-size:12.5px;line-height:1.7}
+  a{color:var(--magenta-ink)}
+  a:focus-visible,img:focus-visible{outline:2px solid var(--magenta);outline-offset:3px}
+
+  @media (max-width:430px){
+    .board{padding:10px 13px;gap:10px}
+    .step h2{padding-inline:14px}
+    .prose{padding-inline:14px}
+  }
   @media print{
     body{background:#fff}
-    .step{break-inside:avoid;border-color:#ccc}
-    .step img{max-height:9cm;object-fit:cover;object-position:center}
+    .step{break-inside:avoid;box-shadow:none}
+    .shot{max-height:8.5cm;object-fit:cover}
   }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="page">
 
-<header>
-  <p class="kicker">KL Sentral · 圖解路線</p>
-  <h1>從 NU Sentral 走到 KLIA Ekspres<br>市區預辦登機櫃檯</h1>
-  <p class="lede">五個步驟，照著每一張現場照片走就不會迷路。<br>
-     <span lang="en">Five photo steps from the NU Sentral concourse to the KL City Air Terminal check-in counters.</span></p>
-  <ul class="facts">
-    <li>約 5 分鐘路程</li>
-    <li>全程有指示牌</li>
-    <li>KL Sentral Level 1</li>
-  </ul>
+<header class="masthead">
+  <p class="route latin"><b>KL Sentral</b> <span aria-hidden="true">→</span> NU Sentral <span aria-hidden="true">→</span> <b>KLIA Ekspres · City Check-in</b></p>
+  <h1>五張照片，帶你走到 KLIA Ekspres 市區預辦登機櫃檯</h1>
+  <p class="lede">在 KL Sentral 的大廳裡，指示牌多、人也多。照著下面五個現場畫面走，每一步都能對上眼前看到的東西。
+    <span class="en" lang="en">Five on-the-ground photos from the NU Sentral concourse to the KL City Air Terminal counters.</span></p>
+  <dl class="meta">
+    <div><dt class="latin">Walking time</dt><dd>約 5 分鐘</dd></div>
+    <div><dt class="latin">Level</dt><dd class="latin">KL Sentral, Level 1</dd></div>
+    <div><dt class="latin">Counters</dt><dd class="latin">11 – 16</dd></div>
+  </dl>
 </header>
 
 <ol class="steps">
 
   <li class="step">
-    <div class="step-head">
-      <span class="num">1</span>
-      <h2>站在 NU Sentral 手扶梯前，轉向右手邊的 KLIA Ekspres 入口
-        <span class="en" lang="en">Face the NU Sentral escalators, then head to the KLIA Ekspres entrance on your right</span></h2>
-    </div>
-    <img src="step-1-nu-sentral.jpg" alt="KL Sentral 大廳，正前方是通往 NU Sentral 的手扶梯與樓梯，右下角以星星標示 KLIA Ekspres 入口方向">
-    <div class="body">
-      <p>先讓自己站到「<span class="sign">WELCOME TO NU SENTRAL</span>」這面大螢幕與手扶梯的正前方，這是 KL Sentral 主大廳最好認的地標。</p>
-      <p>背對售票大廳、面向手扶梯後，<b>往右前方（照片中星星閃爍的位置）</b>走過去，那裡就是紫色的 KLIA Ekspres 通道口，地上牌子寫著 <span class="sign">this way to KLIA Ekspres</span>。</p>
-      <div class="look"><span>👀</span><div><b>認路重點：</b>天花板懸掛的指示牌上有 <span class="sign">KLIA Ekspres</span>（粉紅色）和 <span class="sign">KLIA Transit</span>（紫色）——兩者不同，要找<b>粉紅色</b>的那個。</div></div>
-    </div>
-  </li>
-
-  <li class="step">
-    <div class="step-head">
-      <span class="num">2</span>
-      <h2>從粉紅色「KLIA Ekspres Departure Hall」招牌下走進去
-        <span class="en" lang="en">Walk in under the pink KLIA Ekspres Departure Hall sign</span></h2>
-    </div>
-    <img src="step-2-departure-hall.jpg" alt="粉紅色發光招牌，寫著 Balai Perlepasan KLIA Ekspres / KLIA Ekspres Departure Hall，右側是 Currency Exchange 換匯櫃檯">
-    <div class="body">
-      <p>走到這面亮粉紅色招牌 <span class="sign">Balai Perlepasan KLIA Ekspres</span>／<span class="sign">KLIA Ekspres Departure Hall</span> 就對了，<b>直接從招牌下方走進去</b>。</p>
-      <p>招牌下方還有一塊小指示牌寫 <span class="sign">Platform Tren / Platform</span>，箭頭朝下——那是往月台的手扶梯，先不要下去，我們要先辦登機手續。</p>
-      <div class="look"><span>👀</span><div><b>認路重點：</b>右手邊紅色的 <span class="sign">CURRENCY EXCHANGE / MONEY TRANSFER</span> 換匯櫃檯，需要換馬幣可以在這裡順手處理。</div></div>
+    <p class="board"><span class="step-no">1</span>
+      <span class="board-text">WELCOME TO NU SENTRAL<em>大廳中央的手扶梯，最好認的起點</em></span>
+      <span class="glyph" aria-hidden="true">↗</span></p>
+    <h2>站到 NU Sentral 手扶梯正前方，再轉向右手邊的 KLIA Ekspres 入口
+      <span class="en" lang="en">Stand facing the NU Sentral escalators, then head right to the KLIA Ekspres entrance</span></h2>
+    <img class="shot" src="step-1-nu-sentral.jpg" alt="KL Sentral 大廳，正前方是通往 NU Sentral 的手扶梯與樓梯，右下角以星星標示 KLIA Ekspres 入口方向">
+    <div class="prose">
+      <p>先把自己帶到這面大螢幕與手扶梯前面——寫著 <span class="sign">WELCOME TO NU SENTRAL</span>，是整個大廳最好認的地標，走丟了就回到這裡重來。</p>
+      <p>面向手扶梯站好之後，<b>往右前方走</b>（照片裡星星閃爍的那個方向），那裡是紫色的通道口，地上的立牌寫著 <span class="sign">this way to KLIA Ekspres</span>。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>天花板的指示牌上同時有 <span class="sign">KLIA Ekspres</span>（粉紅）和 <span class="sign">KLIA Transit</span>（紫色）。兩條是不同的線，我們要找<b>粉紅色</b>那個。</span></p>
     </div>
   </li>
 
   <li class="step">
-    <div class="step-head">
-      <span class="num">3</span>
-      <h2>看頭頂指示牌，往前走再轉右（跟著 Flight Check-in）
-        <span class="en" lang="en">Follow the overhead sign: go straight, then turn right for Flight Check-in</span></h2>
-    </div>
-    <img src="step-3-signage.jpg" alt="白色懸掛指示牌：左箭頭 Train Platform、上箭頭 Customer Service、右上箭頭 Daftar Masuk Penerbangan / Flight Check-in">
-    <div class="body">
-      <p>進來後抬頭會看到一面白色指示牌，上面有三個方向：</p>
-      <p>← <span class="sign">Train Platform</span> 月台　·　↑ <span class="sign">Customer Service</span> 客服　·　↗ <span class="sign">Flight Check-in</span> 登機報到</p>
-      <p>我們要的是右上角的 <b><span class="sign">Daftar Masuk Penerbangan / Flight Check-in</span></b>，所以<b>先往前直走，再轉右</b>。左邊的閘門是等一下驗票進月台用的，辦完登機再回來。</p>
-      <div class="look"><span>👀</span><div><b>認路重點：</b>左側就是 KLIA Ekspres 的紫色驗票閘門與售票櫃檯，右側是玻璃店面走道——沿著右側走道往前。</div></div>
-    </div>
-  </li>
-
-  <li class="step">
-    <div class="step-head">
-      <span class="num">4</span>
-      <h2>看到「LUGGAGE CENTRAL」行李櫃檯，代表方向正確
-        <span class="en" lang="en">You should pass the LUGGAGE CENTRAL counter — that means you are on track</span></h2>
-    </div>
-    <img src="step-4-luggage-central.jpg" alt="藍色 LUGGAGE CENTRAL 行李店櫃檯，左側有兩台按摩椅，右側是落地玻璃窗">
-    <div class="body">
-      <p>轉右之後，前方會出現藍色招牌的 <span class="sign">LUGGAGE CENTRAL</span>（賣行李箱、行李配件，也提供行李打包服務），左邊擺著兩台按摩椅。</p>
-      <p>看到它就表示<b>沒有走錯</b>，繼續往前，櫃檯區就在下一個轉角。</p>
-      <div class="look"><span>👀</span><div><b>認路重點：</b>這區白天光線很亮（右側是整面落地窗），跟前面昏暗的通道明顯不同。</div></div>
+    <p class="board"><span class="step-no">2</span>
+      <span class="board-text">BALAI PERLEPASAN KLIA EKSPRES<em>KLIA Ekspres Departure Hall</em></span>
+      <span class="glyph" aria-hidden="true">↓</span></p>
+    <h2>從粉紅色招牌底下走進去
+      <span class="en" lang="en">Walk in beneath the pink departure-hall sign</span></h2>
+    <img class="shot" src="step-2-departure-hall.jpg" alt="粉紅色發光招牌，寫著 Balai Perlepasan KLIA Ekspres / KLIA Ekspres Departure Hall，右側是 Currency Exchange 換匯櫃檯">
+    <div class="prose">
+      <p>看到這面亮粉紅色的招牌就對了：<span class="sign">Balai Perlepasan KLIA Ekspres</span> 是馬來文，下面那行英文 <span class="sign">KLIA Ekspres Departure Hall</span> 說的是同一件事。<b>直接從招牌下方走進去。</b></p>
+      <p>裡面有一塊小牌子寫 <span class="sign">Platform Tren</span>，箭頭朝下指向月台手扶梯——<b>先別下去</b>，我們要先去辦登機手續，等行李寄掛好再回來搭車。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>右手邊紅底白字的 <span class="sign">CURRENCY EXCHANGE</span> 換匯櫃檯。要換馬幣的話，這裡可以順手處理。</span></p>
     </div>
   </li>
 
   <li class="step">
-    <div class="step-head">
-      <span class="num">5</span>
-      <h2>右手邊就是市區預辦登機櫃檯（11–16 號）
-        <span class="en" lang="en">The city check-in counters 11–16 are on your right</span></h2>
+    <p class="board"><span class="step-no">3</span>
+      <span class="board-text">DAFTAR MASUK PENERBANGAN<em>Flight Check-in</em></span>
+      <span class="glyph" aria-hidden="true">↗</span></p>
+    <h2>抬頭看指示牌：往前直走，然後轉右
+      <span class="en" lang="en">Read the overhead sign — straight ahead, then turn right</span></h2>
+    <img class="shot" src="step-3-signage.jpg" alt="白色懸掛指示牌：左箭頭 Train Platform、上箭頭 Customer Service、右上箭頭 Daftar Masuk Penerbangan / Flight Check-in">
+    <div class="prose">
+      <p>進來以後抬頭，一面白色指示牌把三個方向都寫清楚了：<br>
+        ← <span class="sign">Train Platform</span> 月台　·　↑ <span class="sign">Customer Service</span> 客服　·　↗ <span class="sign">Flight Check-in</span> 登機報到</p>
+      <p>我們要的是右上角那個 <b><span class="sign">Daftar Masuk Penerbangan</span></b>，所以<b>先往前直走，再轉右</b>。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>左邊那排紫色驗票閘門是等一下搭車用的，旁邊還有售票櫃檯。現在先不要刷票進去——進去了就得再出來。</span></p>
     </div>
-    <img src="step-5-check-in.jpg" alt="KL City Air Terminal 報到區，粉紅色編號 11 至 16 的 Flight Check-in 櫃檯，前方有四台自助報到與行李托運機">
-    <div class="body">
-      <p>到了！<b>右手邊</b>就是 <span class="sign">KL City Air Terminal</span> 市區預辦登機區，粉紅色牌子標著 <span class="sign">11</span> 到 <span class="sign">16</span> 號櫃檯。</p>
-      <p>前排四台是 <span class="sign">Self-Service Check-in &amp; Baggage Drop</span> 自助機（Malaysia Airlines、Batik Air、Firefly 等），可以自己列印登機證與行李條；需要人工協助就走到後方的 <span class="sign">11 / 12 Self-Service Baggage Drop</span>、<span class="sign">13 Batik Air</span>、<span class="sign">15 / 16</span> 等櫃檯。</p>
-      <p>行李寄掛完成後，原路走回步驟 3 的閘門，刷票下到月台搭 KLIA Ekspres 即可——<b>接下來就可以空手去機場了</b>。</p>
-      <div class="look"><span>👀</span><div><b>認路重點：</b>櫃檯上方是一整排粉紅色行李箱圖示的燈箱號碼牌，很難錯過。</div></div>
+  </li>
+
+  <li class="step">
+    <p class="board"><span class="step-no">4</span>
+      <span class="board-text">LUGGAGE CENTRAL<em>行李店櫃檯 · 走對路的證明</em></span>
+      <span class="glyph" aria-hidden="true">→</span></p>
+    <h2>看到藍色的 LUGGAGE CENTRAL，就表示沒走錯
+      <span class="en" lang="en">Passing the blue LUGGAGE CENTRAL counter means you are on track</span></h2>
+    <img class="shot" src="step-4-luggage-central.jpg" alt="藍色 LUGGAGE CENTRAL 行李店櫃檯，左側有兩台按摩椅，右側是落地玻璃窗">
+    <div class="prose">
+      <p>轉右之後，前方會出現藍色招牌的 <span class="sign">LUGGAGE CENTRAL</span>——賣行李箱與配件，也提供行李打包服務；左邊擺著兩台按摩椅。</p>
+      <p>這是路上的<b>確認點</b>：看到它就繼續往前走，櫃檯區就在前面。沒看到的話，退回步驟 3 的指示牌重新找一次。</p>
+      <p class="spot"><span class="eye latin">LOOK</span><span>這一段右側是整面落地窗，白天光線明顯比剛才的通道亮很多，走進來會感覺「突然變亮了」。</span></p>
+    </div>
+  </li>
+
+  <li class="step">
+    <p class="board"><span class="step-no">5</span>
+      <span class="board-text">KL CITY AIR TERMINAL<em>Counters 11 – 16</em></span>
+      <span class="glyph" aria-hidden="true">✓</span></p>
+    <h2>右手邊就是市區預辦登機櫃檯，到了
+      <span class="en" lang="en">The city check-in counters are on your right — you have arrived</span></h2>
+    <img class="shot" src="step-5-check-in.jpg" alt="KL City Air Terminal 報到區，粉紅色編號 11 至 16 的 Flight Check-in 櫃檯，前方有四台自助報到與行李托運機">
+    <div class="prose">
+      <p>右手邊整排粉紅色行李箱圖示的燈箱號碼牌，從 <span class="sign">11</span> 排到 <span class="sign">16</span>，這裡就是 <span class="sign">KL City Air Terminal</span>。</p>
+      <p>前排四台是 <span class="sign">Self-Service Check-in &amp; Baggage Drop</span> 自助機，可以自己刷護照、印登機證和行李條；需要人工協助，就走到後方的櫃檯（現場可見 <span class="sign">11 / 12</span> 自助行李託運、<span class="sign">13</span> Batik Air、<span class="sign">15 / 16</span> 等）。</p>
+      <p>行李寄掛完成後，原路走回步驟 3 的閘門，刷票下月台搭車——<b>接下來就可以空手去機場了。</b></p>
     </div>
   </li>
 
 </ol>
 
 <section class="notes">
-  <h2>出發前提醒</h2>
-  <ul>
-    <li><b>先確認自己的航班能不能市區報到。</b>市區預辦登機只服務部分航空公司（現場看到 Malaysia Airlines、Batik Air、Firefly 等）與 KLIA 出發的航班，廉航如 AirAsia（KLIA Terminal 2）通常不適用。</li>
-    <li><b>時間要抓早。</b>市區報到有截止時間（一般約在班機起飛前 3 小時關櫃，各家規定不同），而且通常要求你接著搭 KLIA Ekspres 前往機場。實際規定以航空公司與 <a href="https://www.kliaekspres.com/" lang="en">kliaekspres.com</a> 公告為準。</li>
-    <li><b>車程與班距。</b>KL Sentral 到 KLIA 約 28 分鐘、到 KLIA Terminal 2 約 33 分鐘；離峰時段班距較長，出發前先看一下時刻表。</li>
-    <li><b>別走錯月台。</b>KLIA Ekspres（粉紅，直達）和 KLIA Transit（紫色，站站停）是不同列車，票也不同。</li>
-    <li>櫃檯編號、店家與廣告看板會隨時間調整，若現場與照片不同，就跟著 <span class="sign">Flight Check-in</span> 的指示牌走。</li>
-  </ul>
+  <h2>出發前先確認</h2>
+  <dl>
+    <div>
+      <dt>你的航班能不能在市區報到？</dt>
+      <dd>市區預辦登機只服務部分航空公司（現場櫃檯可見 Malaysia Airlines、Batik Air、Firefly）與由 KLIA 出發的航班。AirAsia 這類從 KLIA Terminal 2 出發的廉航通常不適用，訂票時就要先確認。</dd>
+    </div>
+    <div>
+      <dt>時間要抓早，櫃檯會提前關。</dt>
+      <dd>市區報到的截止時間比機場早（一般約在起飛前 3 小時關櫃，各家規定不同），而且通常要求你接著搭 KLIA Ekspres 進機場。實際規定以航空公司與 <a href="https://www.kliaekspres.com/" lang="en">kliaekspres.com</a> 公告為準。</dd>
+    </div>
+    <div>
+      <dt>車程與班距。</dt>
+      <dd>KL Sentral 到 KLIA 約 28 分鐘、到 KLIA Terminal 2 約 33 分鐘。離峰時段班距會拉長，出發前先看一下時刻表再決定幾點出門。</dd>
+    </div>
+    <div>
+      <dt>別上錯車。</dt>
+      <dd>KLIA Ekspres（粉紅，直達機場）和 KLIA Transit（紫色，中途停靠）是兩條不同的線，票也不同，月台上要看清楚再上車。</dd>
+    </div>
+  </dl>
 </section>
 
-<footer>照片攝於 KL Sentral · 步驟說明依現場指示牌整理，實際營運資訊請以官方公告為準。</footer>
+<footer>照片攝於 KL Sentral 現場。櫃檯編號、店家與廣告看板會隨時間調整；若現場與照片不同，就跟著 <span class="sign">Flight Check-in</span> 的指示牌走。營運時間與報到規定請以官方公告為準。</footer>
 
 </div>
 </body>
