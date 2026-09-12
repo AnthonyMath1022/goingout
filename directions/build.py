@@ -2,7 +2,7 @@
 """Build the two distributable copies of the guide from the source page.
 
   directions/parliament-shuttle-guide.html   source: links the .jpg files
-    -> dist/parliament-shuttle-guide.html    one self-contained file, photos
+    -> dist/KLSentral-T851-Parliament-Guide.html  one self-contained file,
                                              embedded, opens from anywhere
     -> dist/artifact-body.html               same page without the <html>
                                              wrapper, for publishing
@@ -42,11 +42,11 @@ def inline(page):
 DIST.mkdir(exist_ok=True)
 
 standalone, count = inline(src)
-(DIST / 'parliament-shuttle-guide.html').write_text(standalone, encoding='utf-8')
+(DIST / 'KLSentral-T851-Parliament-Guide.html').write_text(standalone, encoding='utf-8')
 
 head = re.sub(r'<meta[^>]*>\s*', '', standalone.split('<head>', 1)[1].split('</head>', 1)[0])
 body = standalone.split('<body>', 1)[1].split('</body>', 1)[0]
 (DIST / 'artifact-body.html').write_text(head.strip() + '\n' + body.strip() + '\n', encoding='utf-8')
 
-for out in ('parliament-shuttle-guide.html', 'artifact-body.html'):
+for out in ('KLSentral-T851-Parliament-Guide.html', 'artifact-body.html'):
     print(f'{out}: {(DIST / out).stat().st_size / 1e6:.2f} MB ({count} photos embedded)')
